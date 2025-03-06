@@ -7,14 +7,14 @@
         <flux:sidebar sticky stashable class="border-r border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
             <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
 
-            <a href="{{ route('dashboard') }}" class="mr-5 flex items-center space-x-2" wire:navigate>
+            <a href="{{ route('admin.churches') }}" class="mr-5 flex items-center space-x-2" wire:navigate>
                 ChurchMass
             </a>
 
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Platform')" class="grid">
-                    <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
-                    <flux:navlist.item icon="home" :href="route('masses')" :current="request()->routeIs('masses')" wire:navigate>{{ __('Masses') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('admin.churches')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Churches') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('admin.masses')" :current="request()->routeIs('masses')" wire:navigate>{{ __('Masses') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 

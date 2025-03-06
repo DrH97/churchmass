@@ -6,13 +6,10 @@ use App\Models\Church;
 use Carbon\Carbon;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
-use Livewire\WithPagination;
 
 #[Layout('components.layouts.base')]
 class Home extends Component
 {
-
-    use WithPagination;
 
     public float $latitude = -1.2;
     public float $longitude = 36.8;

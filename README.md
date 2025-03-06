@@ -22,9 +22,6 @@ cd churchmass
 composer install
 
 npm install
-
-composer run post-create-project-cmd
-
 ```
 
 #### 3. Prepare app

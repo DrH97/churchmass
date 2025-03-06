@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Church;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -20,5 +21,22 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        Church::factory(10)->hasMasses(10)->create();
+
+
+        Church::factory(1, [
+                'name' => 'Holy Family Basilica',
+                'type' => 'Basilica',
+                'address' => '02 Koinange St, Nairobi',
+                'latitude' => '-1.2872494450175331',
+                'longitude' => '36.820591005564744',
+            ])
+            ->hasMasses(1, ['day' => 'Sunday', 'time' => '0800', 'language' => 'English'])
+            ->hasMasses(1, ['day' => 'Sunday', 'time' => '0930', 'language' => 'Kiswahili'])
+            ->hasMasses(1, ['day' => 'Sunday', 'time' => '1130', 'language' => 'English'])
+            ->hasMasses(1, ['day' => 'Sunday', 'time' => '1730', 'language' => 'English'])
+            ->create();
+
     }
 }

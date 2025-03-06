@@ -17,21 +17,29 @@ git clone https://github.com/DrH97/churchmass.git
 cd churchmass
 ```
 
-#### 2. Install php dependencies
+#### 2. Install dependencies
 ```shell
 composer install
 
-composer run post-root-package-install
+npm install
 
 composer run post-create-project-cmd
+
+```
+
+#### 3. Prepare app
+```shell
+cp '.env.example' '.env'
+
+php artisan key:generate
+
+touch database/database.sqlite
 
 php artisan migrate:fresh --seed
 ```
 
 #### 3. Build assets
 ```shell
-npm install
-
 npm run build
 ```
 
@@ -45,6 +53,12 @@ composer run dev
 ```shell
 docker compose up --build -d
 ```
+
+#### 5. Credentials
+- test@example.com
+- password
+
+You can also register a new user as needed
 
 ## Todo
 

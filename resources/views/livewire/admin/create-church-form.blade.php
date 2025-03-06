@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Church;
+use Flux\Flux;
 use Livewire\Volt\Component;
 
 new class extends Component {
@@ -23,9 +24,11 @@ new class extends Component {
             'longitude' => ['required', 'numeric', 'between:-180,180'],
         ]);
 
-        $church = Church::create($validated);
+        Church::create($validated);
 
-        $this->dispatch('church-created', id: $church->id);
+        $this->dispatch('church-created');
+
+        Flux::modals()->close();
     }
 }; ?>
 
@@ -44,10 +47,10 @@ new class extends Component {
             <flux:input wire:model="address" :label="__('Address')"/>
 
             <flux:radio.group wire:model="type" :label="__('Type')">
-                <flux:radio value="basilica" label="Basilica" />
-                <flux:radio value="parish" label="Parish" />
-                <flux:radio value="church" label="Church" />
-                <flux:radio value="chapel" label="chapel" />
+                <flux:radio value="basilica" label="Basilica"/>
+                <flux:radio value="parish" label="Parish"/>
+                <flux:radio value="church" label="Church"/>
+                <flux:radio value="chapel" label="chapel"/>
             </flux:radio.group>
 
             <flux:input wire:model="latitude" :label="__('latitude')" type="number" min="-90" max="90"/>

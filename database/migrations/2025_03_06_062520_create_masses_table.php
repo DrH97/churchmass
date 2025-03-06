@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('time');
             $table->string('language');
 
-            $table->foreignIdFor(Church::class);
+            $table->foreignIdFor(Church::class)->cascadeOnDelete();
             $table->unique(['church_id', 'day', 'time', 'language']);
 
             $table->timestamps();

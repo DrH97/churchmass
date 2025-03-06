@@ -26,4 +26,9 @@ class Masses extends Component
             'masses' => $masses,
         ]);
     }
+
+    public function deleteMass($id)
+    {
+        Mass::destroy($id);
+    }
 }

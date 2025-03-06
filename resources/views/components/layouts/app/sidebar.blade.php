@@ -13,8 +13,8 @@
 
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Platform')" class="grid">
-                    <flux:navlist.item icon="home" :href="route('admin.churches')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Churches') }}</flux:navlist.item>
-                    <flux:navlist.item icon="home" :href="route('admin.masses')" :current="request()->routeIs('masses')" wire:navigate>{{ __('Masses') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('admin.churches')" :current="request()->routeIs('admin.churches')" wire:navigate>{{ __('Churches') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('admin.masses')" :current="request()->routeIs('admin.masses')" wire:navigate>{{ __('Masses') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 

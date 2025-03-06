@@ -14,8 +14,14 @@ class Churches extends Component
 
     public function render()
     {
+
+        $churches = Church::where('name', 'like', "%$this->search%")
+            ->orWhere('type', 'like', "%$this->search%")
+            ->orWhere('address', 'like', "%$this->search%")
+            ->paginate(10);
+
         return view('livewire.admin.churches', [
-            'churches' => Church::where('name', 'like', "%$this->search%")->paginate(10),
+            'churches' => $churches,
         ]);
     }
 

@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        Church::factory(10)->hasMasses(10)->create();
+        Church::factory(1000)->hasMasses(5)->create();
 
 
         Church::factory(1, [

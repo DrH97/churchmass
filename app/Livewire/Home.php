@@ -39,12 +39,6 @@ class Home extends Component
 
         return view('livewire.home', [
             'churches' => $churches,
-            'markers' => $churches->map(function ($church) {
-                return [
-                    'lat' => $church->latitude,
-                    'long'  => $church->longitude,
-                ];
-            })->toArray()
         ]);
     }
 

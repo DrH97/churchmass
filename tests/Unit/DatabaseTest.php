@@ -11,11 +11,11 @@ test('migrations, factories and seeders can run', function () {
     $this->assertDatabaseEmpty(Church::getTableName());
     $this->assertDatabaseEmpty(Mass::getTableName());
 
-    // Run the DatabaseSeeder...
-    $this->seed();
+    // Seed...
+    Church::factory(10)->hasMasses(1)->create();
 
-    $this->assertDatabaseCount(Church::getTableName(), 1001);
-    $this->assertDatabaseCount(Mass::getTableName(), 5004);
+    $this->assertDatabaseCount(Church::getTableName(), 10);
+    $this->assertDatabaseCount(Mass::getTableName(), 10);
 });
 
 

@@ -17,15 +17,22 @@ class Mass extends Model
 
     protected $fillable = ['day','time', 'language'];
 
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['formatted_time'];
+
     public function church(): BelongsTo
     {
         return $this->belongsTo(Church::class);
     }
 
-    protected function time(): Attribute
+    protected function formattedTime(): Attribute
     {
         return Attribute::make(
-            get: fn (string $value) => Carbon::createFromFormat('Hi', str_pad($value, 4, '0', STR_PAD_LEFT))->format('h:i a'),
+            get: fn (mixed $value, array $attributes) => Carbon::createFromFormat('Hi', str_pad($attributes['time'], 4, '0', STR_PAD_LEFT))->format('h:i a'),
         );
     }
 

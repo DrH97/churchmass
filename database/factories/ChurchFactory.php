@@ -22,8 +22,8 @@ class ChurchFactory extends Factory
             'name' => fake()->city() . ' ' . $type,
             'type' => $type,
             'address' => fake()->streetAddress(),
-            'latitude' => fake()->latitude(),
-            'longitude' => fake()->longitude(),
+            'latitude' => fake()->latitude(-1, 35),
+            'longitude' => fake()->longitude(0, 42),
         ];
     }
 }

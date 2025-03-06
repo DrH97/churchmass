@@ -1,0 +1,7 @@
+services:
+    app:
+        image: churchmass
+        build: .
+        ports:
+            -   "8000:8080"
+        restart: always

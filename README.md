@@ -13,17 +13,25 @@ A platform to enable users search for churches and masses near them
 #### 1. Clone the repository
 ```shell
 git clone https://github.com/DrH97/churchmass.git
+
+cd churchmass
 ```
 
-#### 2. Install dependencies
+#### 2. Install php dependencies
 ```shell
 composer install
 
-npm install
+composer run post-root-package-install
+
+composer run post-create-project-cmd
+
+php artisan migrate:fresh --seed
 ```
 
 #### 3. Build assets
 ```shell
+npm install
+
 npm run build
 ```
 

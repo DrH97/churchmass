@@ -16,7 +16,7 @@ class Home extends Component
 
     public float $latitude = -1.2;
     public float $longitude = 36.8;
-    public int $radius = 2500;
+    public int $radius = 500;
 
     public bool $massesNearby = true;
 

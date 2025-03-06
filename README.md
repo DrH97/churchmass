@@ -26,17 +26,14 @@ npm install
 
 #### 3. Prepare app
 ```shell
-cp '.env.example' '.env'
+cp .env.example .env
 
 php artisan key:generate
 
 touch database/database.sqlite
 
 php artisan migrate:fresh --seed
-```
 
-#### 3. Build assets
-```shell
 npm run build
 ```
 

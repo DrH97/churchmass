@@ -61,7 +61,7 @@
                         </td>
                         <th scope="row"
                             class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                            <img class="w-10 h-10 rounded-full" src="/storage/church.png" alt="church image">
+                            <img class="w-10 h-10 rounded-full" src="/images/church.png" alt="church image">
                             <div class="ps-3">
                                 <div class="text-base font-semibold">{{$church->name}}</div>
                                 <div class="font-normal text-gray-500">{{$church->type}}</div>

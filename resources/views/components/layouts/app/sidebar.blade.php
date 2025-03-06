@@ -20,6 +20,10 @@
 
             <flux:spacer />
 
+            <flux:navlist variant="outline">
+                    <flux:navlist.item icon="home" :href="route('home')" wire:navigate>{{ __('Homepage') }}</flux:navlist.item>
+            </flux:navlist>
+
             <!-- Desktop User Menu -->
             <flux:dropdown position="bottom" align="start">
                 <flux:profile

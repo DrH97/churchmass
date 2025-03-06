@@ -35,16 +35,19 @@
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$church->name}}</h5>
 
                         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{$church->address}}</p>
-                        <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
-                            View
-                        </a>
+
+                        <flux:button variant="primary" x-data="" x-on:click.prevent="$dispatch('openModal', [{{$church->id}}])">
+                            {{ __('View') }}
+                        </flux:button>
                     </div>
                 </div>
 
             @endforeach
         </div>
 
-
     </div>
+
+    <livewire:church-detail-modal />
+
 
 </div>

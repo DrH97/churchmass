@@ -14,8 +14,8 @@ test('migrations, factories and seeders can run', function () {
     // Run the DatabaseSeeder...
     $this->seed();
 
-    $this->assertDatabaseCount(Church::getTableName(), 11);
-    $this->assertDatabaseCount(Mass::getTableName(), 104);
+    $this->assertDatabaseCount(Church::getTableName(), 1001);
+    $this->assertDatabaseCount(Mass::getTableName(), 5004);
 });
 
 

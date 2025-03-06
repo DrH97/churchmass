@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Church;
+use Carbon\Carbon;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -17,18 +18,36 @@ class Home extends Component
     public float $longitude = 36.8;
     public int $radius = 2500;
 
+    public bool $massesNearby = true;
+
     public function render()
     {
 
+        $query = Church::query()
+            ->selectRaw('*, ( 6371 * acos( cos( radians(?) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(?) ) + sin( radians(?) ) * sin(radians(latitude)) ) ) AS distance',
+                [$this->latitude, $this->longitude, $this->latitude]
+            );
+
+        if ($this->massesNearby) {
+            $query->whereHas('masses', function ($query) {
+                $query->where('day', Carbon::today()->dayName)
+                    ->whereRaw("time > strftime('%H%M', 'now', 'localtime')");
+            });
+        }
+
+        $churches = $query->where('distance', '<', $this->radius)
+            ->orderBy('distance')
+            ->limit(20)
+            ->get();
+
         return view('livewire.home', [
-            'churches' => Church::query()
-                ->selectRaw('*, ( 6371 * acos( cos( radians(:lat) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(:lng) ) + sin( radians(:lat) ) * sin(radians(latitude)) ) ) AS distance',
-                    ['lat' => $this->latitude, 'lng' => $this->longitude]
-                )
-                ->where('distance', '<', $this->radius)
-                ->orderBy('distance')
-                ->limit(20)
-                ->get(),
+            'churches' => $churches,
+            'markers' => $churches->map(function ($church) {
+                return [
+                    'lat' => $church->latitude,
+                    'long'  => $church->longitude,
+                ];
+            })->toArray()
         ]);
     }
 

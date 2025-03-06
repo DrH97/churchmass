@@ -41,14 +41,16 @@ docker compose up --build -d
 ## Todo
 
 ### Implement Geocoding & Maps
-This will enable:
-Searching by address rather than lat,long coordinates.
+**This will enable:**
 
-Displaying churches on a map thus enabling driving and walking distances to be calculated more accurately.
+- Searching by address rather than lat,long coordinates.
+- Displaying churches on a map thus enabling driving and walking distances to be calculated.
 
 
 ### Features Enhancement
 Enhancement of various functionalities like search and filtering of churches and masses more granularly.
+Improve the admin datatables and forms - pagination, sorting and filtering.
+
 
 ### UI/UX
-Provide for a more unified design and user experience
+Provide for a more unified design and user experience.
